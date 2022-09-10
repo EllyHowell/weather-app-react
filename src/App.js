@@ -1,23 +1,17 @@
 import "./App.css";
+import "./styles/Main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./elements/Header";
+import Footer from "./elements/Footer";
 import "./styles/HeaderFooter.css";
-
-const backgroundImage = require("./images/clouds.jpg");
-const divStyle = {
-  width: "100vw",
-  height: "100vh",
-  backgroundImage: `url(${backgroundImage})`,
-  backgroundSize: "cover",
-  position: "absolute",
-};
 
 function App() {
   return (
-    <div className="App" style={divStyle}>
+    <div className="App">
       <Header />
       Hello World
+      <Footer />
     </div>
   );
 }

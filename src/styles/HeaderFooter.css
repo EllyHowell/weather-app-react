@@ -5,7 +5,7 @@ footer {
 }
 
 nav {
-  background-color: rgba(255, 216, 3, 0.7);
+  background-color: var(--primary-colour);
   color: var(--primary-font-color);
 }
 
@@ -17,7 +17,7 @@ nav button {
 
 footer {
   background-color: var(--tertiary-colour);
-  color: var(--primary-font-color);
+  color: var(--white);
   z-index: 2 !important;
 }
 
@@ -26,4 +26,26 @@ footer {
   margin: 0 auto;
   padding: 20px 0;
   width: 100%;
+}
+
+.footer-nav-signature a {
+  color: var(--primary-colour);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#welcomeMessage {
+  letter-spacing: 3px;
+  margin: 0px;
+  padding: 5px 15px;
+}
+
+#metricButton {
+  font-weight: bold;
+  margin: 0px;
+  padding: 5px 15px;
+}
+
+#metricButton:hover {
+  font-weight: normal;
 }
