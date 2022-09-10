@@ -1,0 +1,48 @@
+#day0,
+#day1,
+#day2,
+#day3,
+#day4,
+#day5,
+#day6 {
+  background-color: var(--white);
+  padding: 10px;
+  text-align: center;
+}
+
+#day0 {
+  border-radius: var(--border-radius);
+}
+
+#day0_information {
+  text-align: left;
+  margin: auto auto;
+}
+
+#day0_icon,
+#day0_temp {
+  display: inline-block;
+  margin: auto auto;
+}
+
+#day0_temp ul {
+  padding: 0px;
+  line-height: 50px;
+  list-style: none;
+  text-align: center;
+  margin: auto auto;
+}
+
+#day0_temp li {
+  font-size: 42px;
+}
+
+#day1 {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+#day6 {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}

@@ -17,6 +17,8 @@
 
   /* Border */
   --border-radius: 10px;
+
+  background-color: var(--primary-colour);
 }
 
 body {
@@ -25,7 +27,7 @@ body {
 }
 
 .App {
-  background-color: var(--white);
+  background-color: var(--primary-colour);
   font-family: sans-serif;
   text-align: center;
 }
