@@ -1,4 +1,8 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Header from "./elements/Header";
+import "./styles/HeaderFooter.css";
 
 const backgroundImage = require("./images/clouds.jpg");
 const divStyle = {
@@ -12,6 +16,7 @@ const divStyle = {
 function App() {
   return (
     <div className="App" style={divStyle}>
+      <Header />
       Hello World
     </div>
   );
