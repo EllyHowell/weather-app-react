@@ -1,0 +1,24 @@
+#searchButton,
+#currentButton {
+  background-color: var(--tertiary-colour);
+  border: none;
+  border-radius: 1px;
+  color: var(--white);
+}
+
+.input-group {
+  padding: 0px;
+}
+
+#searchButton:hover,
+#currentButton:hover {
+  background-color: var(--secondary-colour);
+  color: var(--tertiary-colour);
+}
+
+#citySearch {
+  background-color: var(--white);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border: none;
+}
