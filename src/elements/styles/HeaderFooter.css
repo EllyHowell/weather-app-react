@@ -1,0 +1,15 @@
+#Footer {
+  position: fixed;
+  height: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#SearchBar {
+  width: 500px;
+}
+
+.spacingRight {
+  margin-right: 5px;
+}

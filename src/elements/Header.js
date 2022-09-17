@@ -13,12 +13,18 @@ export default function Header() {
           <Nav className="me-auto my-2 my-lg-0" navbarScroll></Nav>
           <Form className="d-flex">
             <Form.Control
+              id="SearchBar"
+              className="spacingRight"
               type="search"
               placeholder="Enter a city name ..."
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
-            <Button variant="outline-success">Current</Button>
+            <Button className="spacingRight" variant="outline-success">
+              Search
+            </Button>
+            <Button className="spacingRight" variant="outline-success">
+              Current
+            </Button>
             <Button variant="outline-success">°C</Button>
           </Form>
         </Navbar>
