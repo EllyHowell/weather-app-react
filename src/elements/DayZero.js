@@ -8,10 +8,20 @@ export default function DayZero() {
         <div class="col-sm">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
+              <h1 id="location" class="card-title">
+                LONDON
+              </h1>
               <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
+                <div id="day0_dayTime">
+                  <span id="day0_day">THURSDAY</span> @{" "}
+                  <span id="day0_time">4:20 PM</span>
+                </div>
+                <div id="day0_desc">broken clouds</div>
+                <div id="day0_humidityWind">
+                  <strong>Humidity: </strong>
+                  <span id="day0_humidity">84%</span> | <strong>Wind: </strong>
+                  <span id="day0_wind">3.6 km/h</span>
+                </div>
               </p>
             </div>
           </div>

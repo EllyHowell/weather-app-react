@@ -1,8 +1,16 @@
 #main {
   margin: 50px auto;
-  width: 90vw;
+  width: 65vw;
 }
 
 .row {
   margin: 25px auto;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  display: inline;
 }
