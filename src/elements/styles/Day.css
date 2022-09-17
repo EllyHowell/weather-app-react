@@ -1,16 +1,9 @@
-#main {
+#dayZeroMain {
   margin: 50px auto;
   width: 65vw;
+  text-align: left;
 }
 
 .row {
   margin: 25px auto;
-}
-
-ul {
-  padding: 0px;
-}
-
-li {
-  display: inline;
 }
