@@ -6,25 +6,22 @@ import Navbar from "react-bootstrap/Navbar";
 
 export default function Header() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar id="Header" bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href=".">Good Morning</Navbar.Brand>
-        <Navbar id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0" navbarScroll></Nav>
+        <Navbar.Brand id="WelcomeMessage" href=".">
+          Good Morning
+        </Navbar.Brand>
+        <Navbar id="SearchContainer">
+          <Nav className="me-auto" navbarScroll></Nav>
           <Form className="d-flex">
             <Form.Control
               id="SearchBar"
-              className="spacingRight"
               type="search"
               placeholder="Enter a city name ..."
               aria-label="Search"
             />
-            <Button className="spacingRight" variant="outline-success">
-              Search
-            </Button>
-            <Button className="spacingRight" variant="outline-success">
-              Current
-            </Button>
+            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success">Current</Button>
             <Button variant="outline-success">°C</Button>
           </Form>
         </Navbar>
