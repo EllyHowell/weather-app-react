@@ -1,9 +1,46 @@
-#dayZeroMain {
-  margin: 50px auto;
-  width: 65vw;
-  text-align: left;
+.bold {
+  font-weight: bold;
 }
-
-.row {
-  margin: 25px auto;
+.card-group,
+.card-text {
+  margin: 0 auto;
+}
+.card-img-top {
+  width: 50%;
+}
+#today {
+  margin: 50px auto;
+}
+.container {
+  display: inline-flex;
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+}
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+  text-align: left;
+  margin: auto 0;
+}
+.details {
+  margin: auto 0;
+  display: flex;
+  width: 50%;
+}
+.justifyLeft {
+  justify-content: left;
+}
+.justifyRight {
+  justify-content: right;
+  padding-right: 20px;
+}
+.forecastTemp {
+  font-size: 18px;
+}
+#today_temp ul {
+  font-size: 50px;
+  list-style: none;
+  text-align: center;
 }
