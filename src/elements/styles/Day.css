@@ -27,14 +27,15 @@ img {
 .details {
   margin: auto 0;
   display: flex;
-  width: 50%;
 }
 .justifyLeft {
   justify-content: left;
+  width: 75%;
 }
 .justifyRight {
   justify-content: right;
   padding-right: 20px;
+  width: 25%;
 }
 .forecastTemp {
   font-size: 18px;
@@ -43,4 +44,56 @@ img {
   font-size: 50px;
   list-style: none;
   text-align: center;
+}
+#todayTemp_small {
+  display: none;
+}
+
+/* Anything smaller than a 'large' screen size */
+@media (max-width: 992px) {
+  .image {
+    width: 35%;
+    margin: auto 0;
+  }
+
+  .justifyLeft {
+    width: 100%;
+  }
+
+  .justifyRight {
+    display: none;
+  }
+
+  #todayTemp_small {
+    display: block;
+  }
+}
+
+/* Anything smaller than a 'medium' screen size */
+@media (max-width: 768px) {
+  .text {
+    font-size: medium;
+  }
+}
+
+/* Anything smaller than a 'small' screen size */
+@media (max-width: 567px) {
+  .text {
+    font-size: small;
+  }
+}
+
+/* Anything smaller than a 'extra small' screen size */
+@media (max-width: 458px) {
+  .image {
+    display: none;
+  }
+
+  .text {
+    padding: 0px;
+  }
+
+  #today {
+    margin: 50px auto 12px auto;
+  }
 }

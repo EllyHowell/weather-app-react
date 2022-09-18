@@ -19,7 +19,10 @@ export default function Today() {
                 <span id="today_day">THURSDAY</span> @{" "}
                 <span id="today_time">4:20 PM</span>
               </div>
-              <div id="today_desc">broken clouds</div>
+              <div id="today_desc">Broken Clouds</div>
+              <div id="todayTemp_small">
+                <span className="bold">↑ 20 °C</span> <span>↓ 16 °C</span>
+              </div>
               <div id="today_humidityWind">
                 <strong>Humidity: </strong>
                 <span id="today_humidity">84%</span> | <strong>Wind: </strong>
