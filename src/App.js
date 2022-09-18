@@ -7,7 +7,8 @@ import Footer from "./elements/Footer";
 import "./elements/styles/Day.css";
 import Day from "./elements/Day";
 import Today from "./elements/Today";
-import { CardGroup } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function App() {
   return (
@@ -15,13 +16,14 @@ function App() {
       <Header />
       <div id="Main">
         <Today />
-        <CardGroup id="forecast">
-          <Day />
-          <Day />
-          <Day />
-          <Day />
-          <Day />
-        </CardGroup>
+
+        <Row id="forecast" xs={1} sm={3} xl={6} className="g-4">
+          {Array.from({ length: 6 }).map((_, idx) => (
+            <Col>
+              <Day />
+            </Col>
+          ))}
+        </Row>
       </div>
       <Footer />
     </div>

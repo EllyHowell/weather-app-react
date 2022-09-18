@@ -9,7 +9,7 @@
   width: 50%;
 }
 #today {
-  margin: 50px auto;
+  margin: 50px auto 24px auto;
 }
 .container {
   display: inline-flex;
@@ -81,19 +81,23 @@ img {
   .text {
     font-size: small;
   }
+
+  .text {
+    padding: 0px;
+  }
+
+  #today_icon {
+    padding-right: 20px;
+  }
+
+  .card-img-top {
+    width: 25%;
+  }
 }
 
 /* Anything smaller than a 'extra small' screen size */
 @media (max-width: 458px) {
   .image {
     display: none;
-  }
-
-  .text {
-    padding: 0px;
-  }
-
-  #today {
-    margin: 50px auto 12px auto;
   }
 }
