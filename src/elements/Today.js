@@ -2,8 +2,12 @@ import { Card } from "react-bootstrap";
 import { React, useState } from "react";
 
 export default function Today(props) {
-  let [dayOfWeek, setDayOfWeek] = useState(null);
-  let [time, setTime] = useState(null);
+  function GetTimeDispay(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var suffix = hours > 12 ? "PM" : "AM";
+    return hours + ":" + minutes + " " + suffix;
+  }
 
   const weekday = [
     "Sunday",
@@ -19,13 +23,9 @@ export default function Today(props) {
   let tempMax = Math.round(props.data.main.temp_max);
   let tempMin = Math.round(props.data.main.temp_min);
 
-  var userTimezoneOffset = date.getTimezoneOffset() * 60000;
   let unixTimeStamp = props.data.dt;
   let milliseconds = unixTimeStamp * 1000 + props.data.timezone * 1000;
-  var date = new Date(milliseconds + userTimezoneOffset);
-
-  setDayOfWeek(weekday[date.getDay()].toUpperCase());
-  setTime(date.toLocaleTimeString());
+  var date = new Date(milliseconds + new Date().getTimezoneOffset() * 60000);
 
   return (
     <Card id="today">
@@ -42,8 +42,10 @@ export default function Today(props) {
             <div className="text">
               <h1>{props.data.name.toUpperCase()}</h1>
               <div>
-                <span id="today_day">{dayOfWeek}</span> @{" "}
-                <span id="today_time">{time}</span>
+                <span id="today_day">
+                  {weekday[date.getDay()].toUpperCase()}
+                </span>{" "}
+                @ <span id="today_time">{GetTimeDispay(date)}</span>
               </div>
               <div id="today_desc">
                 <i>{props.data.weather[0].description}</i>

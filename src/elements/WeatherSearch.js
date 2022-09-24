@@ -13,6 +13,7 @@ export default function WeatherSearch(props) {
     setWeatherData(response.data);
   }
 
+  console.log("Hello World");
   axios.get(url).then(HandleResponse);
   if (weatherData) {
     return <Today data={weatherData} />;
