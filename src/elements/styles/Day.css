@@ -18,6 +18,9 @@
 img {
   max-width: 100%;
 }
+.image {
+  margin: auto 0;
+}
 .text {
   font-size: 20px;
   padding-left: 20px;

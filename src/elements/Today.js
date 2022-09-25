@@ -1,31 +1,13 @@
 import { Card } from "react-bootstrap";
-import { React, useState } from "react";
+import { React } from "react";
+import DateTimeHelper from "./DateTimeHelper";
 
 export default function Today(props) {
-  function GetTimeDispay(date) {
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var suffix = hours > 12 ? "PM" : "AM";
-    return hours + ":" + minutes + " " + suffix;
-  }
-
-  const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let dateTimeHelper = new DateTimeHelper(props.data);
 
   let iconUrl = `https://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`;
   let tempMax = Math.round(props.data.main.temp_max);
   let tempMin = Math.round(props.data.main.temp_min);
-
-  let unixTimeStamp = props.data.dt;
-  let milliseconds = unixTimeStamp * 1000 + props.data.timezone * 1000;
-  var date = new Date(milliseconds + new Date().getTimezoneOffset() * 60000);
 
   return (
     <Card id="today">
@@ -42,10 +24,8 @@ export default function Today(props) {
             <div className="text">
               <h1>{props.data.name.toUpperCase()}</h1>
               <div>
-                <span id="today_day">
-                  {weekday[date.getDay()].toUpperCase()}
-                </span>{" "}
-                @ <span id="today_time">{GetTimeDispay(date)}</span>
+                <span id="today_day">{dateTimeHelper.DayOfWeek()}</span> @{" "}
+                <span id="today_time">{dateTimeHelper.TimeDispay()}</span>
               </div>
               <div id="today_desc">
                 <i>{props.data.weather[0].description}</i>
