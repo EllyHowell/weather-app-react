@@ -20,8 +20,13 @@ function App() {
   let [weatherData, setWeatherData] = useState(null);
   let [welcomeMessage, setWelcomeMessage] = useState("");
 
-  let [unit, setUnit] = useState("metric");
-  let [oppositeUnitSymbol, setOppositeUnitSymbol] = useState("°F");
+  let [isMetric, setIsMetric] = useState(false);
+  function GetUnitString() {
+    return isMetric === true ? "metric" : "imperial";
+  }
+  function GetUnitSymbol() {
+    return isMetric === true ? "°C" : "°F";
+  }
 
   function HandleResponse(response) {
     setWeatherData(response.data);
@@ -29,6 +34,7 @@ function App() {
   }
 
   window.onload = function () {
+    console.log(`On Load (${isMetric})`);
     CitySearchAPICall();
   };
 
@@ -39,7 +45,7 @@ function App() {
 
   function CitySearchAPICall() {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${GetUnitString()}`;
     console.log(url);
     axios
       .get(url)
@@ -65,20 +71,10 @@ function App() {
   function handleUnitChange(event) {
     event.preventDefault();
 
-    switch (unit) {
-      case "metric":
-        setUnit("imperial");
-        setOppositeUnitSymbol("°C");
-        break;
-      case "imperial":
-        setUnit("metric");
-        setOppositeUnitSymbol("°F");
-        break;
-      default:
-        console.log(`${unit} is not valid`);
-        break;
-    }
-
+    console.log(`Changing IsMetric from ${isMetric} to ${!isMetric}`);
+    // It does not change the value correctly (see console logs)
+    setIsMetric(!isMetric);
+    console.log(`IsMetric is now ${isMetric}`);
     CitySearchAPICall();
   }
 
@@ -101,13 +97,13 @@ function App() {
               />
               <Button onClick={handleSubmit}>Search</Button>
               <Button onClick={handleCurrent}>Current</Button>
-              <Button onClick={handleUnitChange}>{oppositeUnitSymbol}</Button>
+              <Button onClick={handleUnitChange}>{GetUnitSymbol()}</Button>
             </form>
           </Navbar>
         </Container>
       </Navbar>
       <div id="Main">
-        <WeatherSearch weatherData={weatherData} unit={unit} />
+        <WeatherSearch weatherData={weatherData} unit={GetUnitString()} />
       </div>
       <Footer />
     </div>
