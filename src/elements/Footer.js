@@ -1,13 +1,12 @@
+import Card from "react-bootstrap/Card";
+
 export default function Footer() {
   return (
-    <div className="Footer">
-      <footer>
-        <p className="footer-nav-signature align-center">
-          Open-sourced code by{" "}
-          <a href="https://github.com/EllyHowell">Elly Howell</a> and hosted on{" "}
-          <a href="https://www.netlify.com/">Netlify</a>
-        </p>
-      </footer>
-    </div>
+    <Card id="Footer">
+      <Card.Body>
+        This project was coded by Elly Howell and is open-sourced on{" "}
+        <a href=".">GitHub</a> and hosted on <a href=".">Netlify</a>
+      </Card.Body>
+    </Card>
   );
 }

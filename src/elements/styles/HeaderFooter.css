@@ -1,0 +1,19 @@
+#Footer {
+  font-size: 12px;
+  position: fixed;
+  height: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+Button,
+#SearchBar {
+  border-radius: 0px !important;
+}
+
+@media (max-width: 600px) {
+  #SearchContainer {
+    margin: 0 auto;
+  }
+}

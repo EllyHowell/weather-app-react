@@ -1,3 +1,15 @@
 .App {
   text-align: center;
 }
+
+#Main {
+  margin: 50px auto 0px auto;
+  width: 80%;
+}
+
+/* Anything smaller than a 'small' screen size */
+@media (max-width: 567px) {
+  #Main {
+    margin: 50px auto 100px auto;
+  }
+}
