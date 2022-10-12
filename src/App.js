@@ -20,13 +20,16 @@ function App() {
   let [weatherData, setWeatherData] = useState(null);
   let [welcomeMessage, setWelcomeMessage] = useState("");
 
+  let [unit, setUnit] = useState("metric");
+  let [oppositeUnitSymbol, setOppositeUnitSymbol] = useState("°F");
+
   function HandleResponse(response) {
     setWeatherData(response.data);
     setWelcomeMessage(new DateTimeHelper(response.data).WelcomeMessage());
   }
 
   window.onload = function () {
-    APICall();
+    CitySearchAPICall();
   };
 
   function handleChange(event) {
@@ -34,15 +37,16 @@ function App() {
     setCity(event.target.value);
   }
 
-  function APICall() {
+  function CitySearchAPICall() {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    console.log(url);
     axios
       .get(url)
       .then(HandleResponse)
-      .catch(function (error) {
+      .catch(function () {
         if (city) {
+          document.getElementById("SearchBar").value = "";
           alert(`${city} is not a valid city name`);
         }
       });
@@ -50,7 +54,32 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    APICall();
+    CitySearchAPICall();
+  }
+
+  function handleCurrent(event) {
+    event.preventDefault();
+    alert("Handle Current");
+  }
+
+  function handleUnitChange(event) {
+    event.preventDefault();
+
+    switch (unit) {
+      case "metric":
+        setUnit("imperial");
+        setOppositeUnitSymbol("°C");
+        break;
+      case "imperial":
+        setUnit("metric");
+        setOppositeUnitSymbol("°F");
+        break;
+      default:
+        console.log(`${unit} is not valid`);
+        break;
+    }
+
+    CitySearchAPICall();
   }
 
   return (
@@ -62,7 +91,7 @@ function App() {
           </Navbar.Brand>
           <Navbar id="SearchContainer">
             <Nav className="me-auto" navbarScroll></Nav>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={handleSubmit}>
               <Form.Control
                 id="SearchBar"
                 type="search"
@@ -71,14 +100,14 @@ function App() {
                 onChange={handleChange}
               />
               <Button onClick={handleSubmit}>Search</Button>
-              <Button>Current</Button>
-              <Button>°C</Button>
+              <Button onClick={handleCurrent}>Current</Button>
+              <Button onClick={handleUnitChange}>{oppositeUnitSymbol}</Button>
             </form>
           </Navbar>
         </Container>
       </Navbar>
       <div id="Main">
-        <WeatherSearch weatherData={weatherData} />
+        <WeatherSearch weatherData={weatherData} unit={unit} />
       </div>
       <Footer />
     </div>

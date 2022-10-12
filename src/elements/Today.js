@@ -31,8 +31,14 @@ export default function Today(props) {
                 <i>{props.data.weather[0].description}</i>
               </div>
               <div id="todayTemp_small">
-                <span className="bold">↑ {tempMax} °C</span>{" "}
-                <span>↓ {tempMin} °C</span>
+                <span className="bold">
+                  ↑ {tempMax}
+                  {props.unitSymbol}
+                </span>{" "}
+                <span>
+                  ↓ {tempMin}
+                  {props.unitSymbol}
+                </span>
               </div>
               <div id="today_humidityWind">
                 <strong>Humidity: </strong>
@@ -47,9 +53,13 @@ export default function Today(props) {
           <div id="today_temp" className="details justifyRight">
             <ul>
               <li className="bold" id="today_tempHigh">
-                {tempMax} °C
+                {tempMax}
+                {props.unitSymbol}
               </li>
-              <li id="temp_tempLow">{tempMin} °C</li>
+              <li id="temp_tempLow">
+                {tempMin}
+                {props.unitSymbol}
+              </li>
             </ul>
           </div>
         </div>
