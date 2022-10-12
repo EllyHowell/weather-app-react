@@ -1,0 +1,105 @@
+/* Anything smaller than a 'large' screen size */
+@media (max-width: 992px) {
+  #day0_icon {
+    display: none;
+  }
+}
+
+/* Anything smaller than a 'medium' screen size */
+@media (max-width: 768px) {
+  #day0_tempHigh,
+  #day0_tempLow {
+    font-size: 35px !important;
+  }
+
+  #day1,
+  #day2,
+  #day3,
+  #day4,
+  #day5,
+  #day6 {
+    border-radius: 0;
+  }
+
+  #day1 {
+    border-top-left-radius: var(--border-radius);
+  }
+
+  #day3 {
+    border-top-right-radius: var(--border-radius);
+  }
+
+  #day4 {
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  #day6 {
+    border-bottom-right-radius: var(--border-radius);
+  }
+}
+
+/* Anything smaller than a 'small' screen size */
+@media (max-width: 567px) {
+  #day0,
+  #forecast,
+  #searchContainer {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #day0_tempHigh,
+  #day0_tempLow {
+    font-size: 23px !important;
+    height: 42px;
+  }
+
+  #day1,
+  #day2,
+  #day3,
+  #day4,
+  #day5,
+  #day6 {
+    border-radius: 0;
+  }
+
+  #day1 {
+    border-top-left-radius: var(--border-radius);
+  }
+
+  #day2 {
+    border-top-right-radius: var(--border-radius);
+  }
+
+  #day5 {
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  #day6 {
+    border-bottom-right-radius: var(--border-radius);
+  }
+}
+
+/* Anything smaller than a 'extra small' screen size */
+@media (max-width: 458px) {
+  #day0_temp {
+    margin: 0 auto;
+  }
+
+  #day0_tempHigh,
+  #day0_tempLow {
+    font-size: 18px !important;
+    height: 42px;
+  }
+
+  #location {
+    font-size: 25px;
+  }
+
+  #day0 {
+    font-size: 13px;
+  }
+
+  #main {
+    margin: 80px auto 100px auto;
+  }
+}
