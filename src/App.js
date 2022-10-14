@@ -1,5 +1,5 @@
 import "./App.css";
-import { React, useState } from "react";
+import { React, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
@@ -21,9 +21,11 @@ function App() {
   let [welcomeMessage, setWelcomeMessage] = useState("");
 
   let [isMetric, setIsMetric] = useState(false);
-  function GetUnitString() {
+
+  const GetUnitString = useCallback(() => {
     return isMetric === true ? "metric" : "imperial";
-  }
+  }, [isMetric]);
+
   function GetUnitSymbol() {
     return isMetric === true ? "°C" : "°F";
   }
@@ -33,8 +35,12 @@ function App() {
     setWelcomeMessage(new DateTimeHelper(response.data).WelcomeMessage());
   }
 
+  function HandleResponseCurrent(response) {
+    setCity(response.data.name);
+    HandleResponse(response);
+  }
+
   window.onload = function () {
-    console.log(`On Load (${isMetric})`);
     CitySearchAPICall();
   };
 
@@ -43,10 +49,10 @@ function App() {
     setCity(event.target.value);
   }
 
-  function CitySearchAPICall() {
+  const CitySearchAPICall = useCallback(() => {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${GetUnitString()}`;
-    console.log(url);
+
     axios
       .get(url)
       .then(HandleResponse)
@@ -56,27 +62,35 @@ function App() {
           alert(`${city} is not a valid city name`);
         }
       });
-  }
+  }, [city, GetUnitString]);
 
   function handleSubmit(event) {
     event.preventDefault();
     CitySearchAPICall();
   }
 
+  function getCurrentInfo(pos) {
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let latitude = pos.coords.latitude;
+    let longitude = pos.coords.longitude;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${GetUnitString()}`;
+
+    axios.get(url).then(HandleResponseCurrent);
+  }
+
   function handleCurrent(event) {
     event.preventDefault();
-    alert("Handle Current");
+    navigator.geolocation.getCurrentPosition(getCurrentInfo);
   }
 
   function handleUnitChange(event) {
     event.preventDefault();
-
-    console.log(`Changing IsMetric from ${isMetric} to ${!isMetric}`);
-    // It does not change the value correctly (see console logs)
     setIsMetric(!isMetric);
-    console.log(`IsMetric is now ${isMetric}`);
-    CitySearchAPICall();
   }
+
+  useEffect(() => {
+    CitySearchAPICall();
+  }, [CitySearchAPICall, isMetric]);
 
   return (
     <div className="App">
