@@ -20,6 +20,8 @@ function App() {
   let [weatherData, setWeatherData] = useState(null);
   let [welcomeMessage, setWelcomeMessage] = useState("");
 
+  const [cityQuery, setCityQuery] = useState("Sydney");
+
   let [isMetric, setIsMetric] = useState(false);
 
   const GetUnitString = useCallback(() => {
@@ -51,22 +53,20 @@ function App() {
 
   const CitySearchAPICall = useCallback(() => {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${GetUnitString()}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityQuery}&appid=${apiKey}&units=${GetUnitString()}`;
 
     axios
       .get(url)
       .then(HandleResponse)
       .catch(function () {
-        if (city) {
-          document.getElementById("SearchBar").value = "";
-          alert(`${city} is not a valid city name`);
-        }
+        document.getElementById("SearchBar").value = "";
+        alert(`${cityQuery} is not a valid city name`);
       });
-  }, [city, GetUnitString]);
+  }, [cityQuery, GetUnitString]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    CitySearchAPICall();
+    setCityQuery(city);
   }
 
   function getCurrentInfo(pos) {
