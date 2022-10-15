@@ -38,7 +38,7 @@ function App() {
   }
 
   function HandleResponseCurrent(response) {
-    setCity(response.data.name);
+    setCityQuery(response.data.name);
     HandleResponse(response);
   }
 
