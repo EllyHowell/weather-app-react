@@ -46,7 +46,9 @@ export default function Today(props) {
                   {Math.round(props.data.main.humidity)}%
                 </span>{" "}
                 | <strong>Wind: </strong>
-                <span id="today_wind">{props.data.wind.speed} km/h</span>
+                <span id="today_wind">
+                  {props.data.wind.speed} {props.windMetric}
+                </span>
               </div>
             </div>
           </div>

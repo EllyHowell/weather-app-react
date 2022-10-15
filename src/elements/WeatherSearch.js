@@ -8,6 +8,7 @@ export default function WeatherSearch(props) {
       <Today
         data={props.weatherData}
         unitSymbol={props.unit === "imperial" ? "°F" : "°C"}
+        windMetric={props.unit === "imperial" ? "mps" : "mph"}
       />
     );
   } else {
