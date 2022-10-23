@@ -14,6 +14,7 @@ import "./elements/styles/HeaderFooter.css";
 import Footer from "./elements/Footer";
 import WeatherSearch from "./elements/WeatherSearch";
 import DateTimeHelper from "./elements/DateTimeHelper";
+import WeatherForecast from "./elements/WeatherForecast";
 
 function App() {
   let [city, setCity] = useState("Sydney");
@@ -118,6 +119,7 @@ function App() {
       </Navbar>
       <div id="Main">
         <WeatherSearch weatherData={weatherData} unit={GetUnitString()} />
+        <WeatherForecast weatherData={weatherData} />
       </div>
       <Footer />
     </div>
