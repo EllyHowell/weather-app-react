@@ -1,13 +1,16 @@
 import Day from "./Day";
-import { React } from "react";
+import { React, useState } from "react";
 import { Card } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import DateTimeHelper from "./DateTimeHelper";
 
 export default function WeatherForecast(props) {
+  let [forecastData, setForecastData] = useState(null);
+
   function handleResponse(response) {
-    // console.log(response.data);
+    setForecastData(response.data);
   }
 
   if (props.weatherData) {
@@ -20,7 +23,12 @@ export default function WeatherForecast(props) {
       <Row xs={1} md={2} lg={5} className="g-4">
         {Array.from({ length: 5 }).map((_, idx) => (
           <Col key={idx}>
-            <Day data={props.weatherData} addDays={idx} />
+            <Day
+              data={forecastData.daily[idx]}
+              today={new DateTimeHelper(props.weatherData)}
+              daysInFuture={idx}
+              unitSymbol={props.unit === "imperial" ? "°F" : "°C"}
+            />
           </Col>
         ))}
       </Row>

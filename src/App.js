@@ -119,7 +119,7 @@ function App() {
       </Navbar>
       <div id="Main">
         <WeatherSearch weatherData={weatherData} unit={GetUnitString()} />
-        <WeatherForecast weatherData={weatherData} />
+        <WeatherForecast weatherData={weatherData} unit={GetUnitString()} />
       </div>
       <Footer />
     </div>
