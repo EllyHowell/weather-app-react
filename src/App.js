@@ -22,7 +22,7 @@ function App() {
 
   const [cityQuery, setCityQuery] = useState("Sydney");
 
-  let [isMetric, setIsMetric] = useState(false);
+  let [isMetric, setIsMetric] = useState(true);
 
   const GetUnitString = useCallback(() => {
     return isMetric === true ? "metric" : "imperial";
