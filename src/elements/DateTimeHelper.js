@@ -30,8 +30,14 @@ export default class DateTimeHelper {
     return `${hours}:${minutes} ${suffix}`;
   }
 
-  DayOfWeek() {
-    return this.Weekday[this.dateTime.getDay()].toUpperCase();
+  DayOfWeek(date) {
+    return this.Weekday[date.getDay()].toUpperCase();
+  }
+
+  AddDays(days) {
+    let date = new Date(this.dateTime);
+    date.setDate(date.getDate() + days);
+    return date;
   }
 
   constructor(weatherData) {

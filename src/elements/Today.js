@@ -24,8 +24,10 @@ export default function Today(props) {
             <div className="text">
               <h1>{props.data.name.toUpperCase()}</h1>
               <div>
-                <span id="today_day">{dateTimeHelper.DayOfWeek()}</span> @{" "}
-                <span id="today_time">{dateTimeHelper.TimeDispay()}</span>
+                <span id="today_day">
+                  {dateTimeHelper.DayOfWeek(dateTimeHelper.dateTime)}
+                </span>{" "}
+                @ <span id="today_time">{dateTimeHelper.TimeDispay()}</span>
               </div>
               <div id="today_desc">
                 <i>{props.data.weather[0].description}</i>
