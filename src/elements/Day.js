@@ -21,11 +21,11 @@ export default function Day(props) {
           <Card.Text>
             <span className="forecastTemp">
               <span className="bold">
-                {props.data.temp.max}
+                {Math.round(props.data.temp.max)}
                 {props.unitSymbol}
               </span>{" "}
               <span>
-                {props.data.temp.min}
+                {Math.round(props.data.temp.min)}
                 {props.unitSymbol}
               </span>
             </span>
